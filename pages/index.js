@@ -5,6 +5,7 @@ import EventList from '../components/events/event-list';
 import NewsletterRegistration from '../components/input/newsletter-registration';
 
 function HomePage(props) {
+  console.log(props.events);
   return (
     <div>
       <Head>
@@ -21,8 +22,9 @@ function HomePage(props) {
 }
 
 export async function getStaticProps() {
-  const featuredEvents = await getFeaturedEvents();
 
+  const featuredEvents = await getFeaturedEvents();
+  console.log(featuredEvents);
   return {
     props: {
       events: featuredEvents,

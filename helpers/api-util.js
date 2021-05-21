@@ -3,9 +3,9 @@ export async function getAllEvents() {
     'https://nextjs-project-1b929-default-rtdb.firebaseio.com/events.json'
   );
   const data = await response.json();
-
+    console.log(data);
   const events = [];
-
+  
   for (const key in data) {
     events.push({
       id: key,
@@ -18,6 +18,7 @@ export async function getAllEvents() {
 
 export async function getFeaturedEvents() {
   const allEvents = await getAllEvents();
+ 
   return allEvents.filter((event) => event.isFeatured);
 }
 
